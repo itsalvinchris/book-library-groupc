@@ -34,14 +34,9 @@ Use the package manager [composer](https://getcomposer.org/download/) to install
 ```bash
 composer install
 ```
-
-Installation on Local Server without SSL/HTTPS
-replace all https to http links on each src attribute in the img tag in all views
-
-Installation on Server with SSL/HTTPS
-Edit .env file and add/change
+Edit .env file and change application from production to local
 ```bash
-APP_ENV=production
+APP_ENV=local
 ```
 
 You might want to look at .env to configure the database

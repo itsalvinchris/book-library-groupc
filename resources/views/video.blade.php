@@ -112,7 +112,7 @@
                 orderable: false, ajax: 'thumbnail', name: 'thumbnail', orderable: false, defaultContent: '', title: 'Photo',
                 visible: true, className: 'text-center', width: '20px',
                 createdCell: function (td, cellData, rowData, row, col) {
-                    var $ctl = $('<td class="text-center"><img id="book-img"style="width: 200px; height: 200px;"src="https://'+ window.location.host + '/storage/' + cellData +'"></td>')
+                    var $ctl = $('<td class="text-center"><img id="book-img"style="width: 200px; height: 200px;" src="'+window.location.protocol+ '//'+ window.location.host + '/storage/' + cellData +'"></td>')
                     $(td).replaceWith($ctl);
                 }
             },
@@ -136,12 +136,6 @@
             },
         ];
 
-        $(document).on("click-row.bs.table", "#register", function(event, row, $element){
-            console.log($element);
-            console.log(row);
-            console.log(event);
-
-        });
         $(document).ready(function () {
             
             table = $('#register').DataTable({
@@ -159,11 +153,8 @@
             $("#register").toggleClass('cards');
             $("#register thead").toggle();
             $('.dataTable').on('click', 'tbody tr', function() {
-                console.log("{{Auth::guard('web')->check()}}");
                 if("{{Auth::guard('web')->check()}}"){
                     $('#modal-title').text(table.row(this).data()[1]);
-                    console.log(table.row(this).data()[1]);
-                    console.log(table.row(this).data()[3]);
                     $('#video-id source').attr('src',"{{url('/storage/')}}"+"/"+table.row(this).data()[3]);
                     $('#video-id')[0].load();
                 }
@@ -171,7 +162,6 @@
             });
             $('.videoModal').on('hidden.bs.modal', function(e) {
                 if("{{Auth::guard('web')->check()}}"){
-                    console.log('yes')    
                     $('#video-id').get(0).pause();
                 }
             });

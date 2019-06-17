@@ -93,10 +93,8 @@
                 orderable: false, ajax: 'image', name: 'book_id', orderable: false, defaultContent: '', title: 'Photo',
                 visible: true, className: 'text-center', width: '20px',
                 createdCell: function (td, cellData, rowData, row, col) {
-                    console.log(rowData)
                     var image = rowData.DT_RowData[0].image;
-                    console.log(image)
-                    var $ctl = $('<td class="text-center"><img id="book-img'+cellData+'"style="width: 100px; height: 100px;"src="https://'+ window.location.host + '/storage/' + image +'"></td>')
+                    var $ctl = $('<td class="text-center"><img id="book-img'+cellData+'"style="width: 100px; height: 100px;"src="'+window.location.protocol+ '//'+ window.location.host + '/storage/' + image +'"></td>')
                     $(td).replaceWith($ctl);
                 }
             },
@@ -112,10 +110,10 @@
             {
                 ajax: "author", name: 'book_id', visible: false, class: 'd-flex justify-content-between align-items-center',
                 render: function (data, type, full, meta) {
-                    var index = data.indexOf("+-*/");
-                    var id = data.substr(index+4, data.length - index -1);
-                    var data = data.substr(0, index);
-                    return '<label style="margin: 0;">Author:</label>' + '<label id="author'+id+'" style="margin: 0; height: 24px; overflow: hidden;">'+data+'</label>'; 
+                    // var index = data.indexOf("+-*/");
+                    // var id = data.substr(index+4, data.length - index -1);
+                    // var data = data.substr(0, index);
+                    return '<label style="margin: 0;">Author:</label>' + '<label id="author'+data+'" style="margin: 0; height: 24px; overflow: hidden;">'+data+'</label>'; 
                 }
             },
             {

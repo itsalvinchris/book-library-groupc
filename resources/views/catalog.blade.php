@@ -100,7 +100,7 @@
                     var index = cellData.indexOf("+-*/");
                     var id = cellData.substr(index+4, cellData.length - index -1);
                     var cellData = cellData.substr(0, index);
-                    var $ctl = $('<td class="text-center"><img id="book-img'+id+'"style="width: 100px; height: 100px;"src="https://'+ window.location.host + '/storage/' +cellData +'"></td>')
+                    var $ctl = $('<td class="text-center"><img id="book-img'+id+'"style="width: 100px; height: 100px;"src="'+window.location.protocol+ '//'+ window.location.host + '/storage/' +cellData +'"></td>')
                     $(td).replaceWith($ctl);
                 }
             },
