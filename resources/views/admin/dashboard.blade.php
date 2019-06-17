@@ -61,45 +61,6 @@
                     { targets: 'no-sort', orderable: false }
                 ]});
 
-                $(".btn-show").click( (event) => {
-                    const id = event.currentTarget.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    $('#image-show').attr('src', "{{url('storage/')}}/"+$("#filename"+index).val());
-                });
-
-                $('.btn-delete').click(function(){
-                    const id = this.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    $('#delete-video-title').html($('#title'+index).html());
-                    $('#modal-video-delete').attr('action',"{{url('/admin/add-book/')}}/"+index);
-                });
-
-                $(".btn-edit").click( (event) => {
-                    const id = event.currentTarget.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    // var path_file_name = $("#nama-file"+index).text();
-                    // path_file_name = path_file_name.split(';');
-                    // var file_name_with_ext = path_file_name[1];
-                    // file_name_with_ext = file_name_with_ext.split('.');
-                    // var file_name = file_name_with_ext[0];
-                    // $("#edit-name").val(file_name);
-                    $("#update-title").val($('#title'+index).html());
-                    $("#update-author").val($('#author'+index).html());
-                    $("#update-isbn").val($('#isbn'+index).html());
-                    $("#update-author").val($('#author'+index).html());
-                    $("#update-publisher").val($('#publisher'+index).html());
-                    $("#update-quantity").val($('#quantity'+index).html());
-                    $("#modal-video-edit").attr('action',"{{url('/admin/add-book')}}/"+index);
-                });
-        
-                // $(".btn-show").click( (event) => {
-                //     const id = event.currentTarget.id;
-                //     const currIndex = id.indexOf("#");
-                //     const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                // });
                 $("#book-file-input").on("change", function() {
                     var fileName = $(this).val().split("\\").pop();
                     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -109,6 +70,36 @@
                     $("#file-name").removeClass("selected").html("Book File (Leave this If dont want to change)");
                 })
         
+            });
+
+            $(document).on("click", ".btn-delete", function(event){
+                const id = this.id;
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                $('#delete-video-title').html($('#title'+index).html());
+                $('#modal-video-delete').attr('action',"{{url('/admin/add-book/')}}/"+index);
+            });
+
+            $(document).on("click", ".btn-edit", function(event){
+                const id = event.currentTarget.id;
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                $("#update-title").val($('#title'+index).html());
+                $("#update-author").val($('#author'+index).html());
+                $("#update-isbn").val($('#isbn'+index).html());
+                $("#update-author").val($('#author'+index).html());
+                $("#update-publisher").val($('#publisher'+index).html());
+                $("#update-quantity").val($('#quantity'+index).html());
+                $("#modal-video-edit").attr('action',"{{url('/admin/add-book')}}/"+index);
+            });
+
+            $(document).on("click", ".btn-show", function(event){
+                const id = event.currentTarget.id;
+                console.log(id);
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                console.log("{{url('storage/')}}/"+$("#filename"+index).val());
+                $('#image-show').attr('src', "{{url('storage/')}}/"+$("#filename"+index).val());
             });
         </script>
         <title>Library | Admin</title>

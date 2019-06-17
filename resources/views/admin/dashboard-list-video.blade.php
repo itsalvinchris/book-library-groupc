@@ -47,36 +47,9 @@
                     return '<button id="btn-add" data-toggle="modal" href="#modal-id" class="btn btn-danger btn-borrow" style="margin-top: 15px;width: 70px;height: 25px;font-size: 12px;line-height: 12px !important;">Add</button>';
                 });
 
-                $('.btn-delete').click(function(){
-                    const id = this.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    $('#delete-video-title').html($('#title'+index).html());
-                    $('#modal-video-delete').attr('action',"{{url('/admin/video/')}}/"+index);
-                });
-
-                $(".btn-edit").click( (event) => {
-                    const id = event.currentTarget.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    $("#edit-name-video").val($('#title'+index).html());
-                    $("#edit-desc").val($('#desc'+index).html());
-                    $("#thumb-update-img").attr('src', "{{url('storage/')}}/"+$('#thumbnail-path'+index).val());
-                    $("#modal-video-edit").attr('action',"{{url('/admin/video')}}/"+index);
-                });
-
                 $('.videoModal').on('hidden.bs.modal', function(e) {
                     console.log('yes')    
                     $('#video-id').get(0).pause();
-                });
-
-                $('.btn-video').click(function(){
-                    const id = this.id;
-                    const currIndex = id.indexOf("#");
-                    const index = id.substr(currIndex + 1,id.length - currIndex - 1);
-                    console.log('hello')
-                    $('#video-id source').attr('src',"{{url('/storage/')}}"+"/"+$('#video-path'+index).val());
-                    $('#video-id')[0].load();
                 });
 
                 $("#library_file").change(function () {
@@ -101,6 +74,7 @@
 
                 $("#thumb-update-image").on("change", function() {
                     var fileName = $(this).val().split("\\").pop();
+                    console.log(fileName);
                     $(this).siblings("#thumb-update-name").addClass("selected").html(fileName);
                 });
 
@@ -140,6 +114,33 @@
                     readURL(this);
                 });
         
+            });
+
+            $(document).on("click", ".btn-delete", function(event){
+                const id = this.id;
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                $('#delete-video-title').html($('#title'+index).html());
+                $('#modal-video-delete').attr('action',"{{url('/admin/video/')}}/"+index);
+            });
+
+            $(document).on("click", ".btn-edit", function(event){
+                const id = event.currentTarget.id;
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                $("#edit-name-video").val($('#title'+index).html());
+                $("#edit-desc").val($('#desc'+index).html());
+                $("#thumb-update-img").attr('src', "{{url('storage/')}}/"+$('#thumbnail-path'+index).val());
+                $("#modal-video-edit").attr('action',"{{url('/admin/video')}}/"+index);
+            });
+
+            $(document).on("click", ".btn-video", function(event){
+                const id = this.id;
+                const currIndex = id.indexOf("#");
+                const index = id.substr(currIndex + 1,id.length - currIndex - 1);
+                console.log('hello')
+                $('#video-id source').attr('src',"{{url('/storage/')}}"+"/"+$('#video-path'+index).val());
+                $('#video-id')[0].load();
             });
         </script>
         <title>Library | Admin</title>
@@ -254,7 +255,7 @@
                                             </div>
                                             <div class="custom-file ">
                                                 <input type="file" class="custom-file-input" name="thumb_file" id="thumb-update-image">
-                                                <label class="custom-file-label text-left" for="customFile" id="thumb-upate-name">Choose Thumbnail (Leave this If dont want to change)</label>
+                                                <label class="custom-file-label text-left" for="customFile" id="thumb-update-name">Choose Thumbnail (Leave this If dont want to change)</label>
                                             </div>
                                             <div class="body-content" style="padding-bottom: 0;">
                                                 <label for="year">Video Title</label>

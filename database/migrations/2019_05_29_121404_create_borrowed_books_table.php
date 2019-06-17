@@ -16,14 +16,14 @@ class CreateBorrowedBooksTable extends Migration
         Schema::create('borrowed_books', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
-            $table->string('book_id');
+            $table->integer('book_id')->unsigned();
             $table->string('date_borrowed')->default('asd');
             $table->string('date_due');
             $table->string('returned');
             $table->string('date_returned')->default('asd');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            //$table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 
