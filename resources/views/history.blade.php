@@ -20,7 +20,7 @@
 
     <meta property="og:image" content="{{asset('images/logo2.png')}}">
 
-    <meta property="og:url" content="http://library.christopheralvin.xyz/">
+    <meta property="og:url" content="https://library.christopheralvin.xyz/">
 
     <meta name="theme-color" content="#0af"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -96,7 +96,7 @@
                     console.log(rowData)
                     var image = rowData.DT_RowData[0].image;
                     console.log(image)
-                    var $ctl = $('<td class="text-center"><img id="book-img'+cellData+'"style="width: 100px; height: 100px;"src="http://'+ window.location.host + '/storage/' + image +'"></td>')
+                    var $ctl = $('<td class="text-center"><img id="book-img'+cellData+'"style="width: 100px; height: 100px;"src="https://'+ window.location.host + '/storage/' + image +'"></td>')
                     $(td).replaceWith($ctl);
                 }
             },
@@ -285,7 +285,7 @@
         </div>
         <div class="landing-content direction-wrap mx-auto" style="width: 86%; min-height: 80vh;">
             <div class="rightreveal inner-content" style="margin-top: 65px; width: 100%;">
-                <div class="row" style="width: 100%;">
+                <div class="row">
                     <div class="col-sm-12 catalog">
                         <table id="register" class="table table-bordered compact dataTable no-footer" cellspacing="0"
                             style="width: 100%; border-bottom: 1px solid #dee2e6;">

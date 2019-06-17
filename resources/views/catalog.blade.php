@@ -20,7 +20,7 @@
 
     <meta property="og:image" content="{{asset('images/logo2.png')}}">
 
-    <meta property="og:url" content="http://library.christopheralvin.xyz/">
+    <meta property="og:url" content="https://library.christopheralvin.xyz/">
 
     <meta name="theme-color" content="#0af"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -100,7 +100,7 @@
                     var index = cellData.indexOf("+-*/");
                     var id = cellData.substr(index+4, cellData.length - index -1);
                     var cellData = cellData.substr(0, index);
-                    var $ctl = $('<td class="text-center"><img id="book-img'+id+'"style="width: 100px; height: 100px;"src="http://'+ window.location.host + '/storage/' +cellData +'"></td>')
+                    var $ctl = $('<td class="text-center"><img id="book-img'+id+'"style="width: 100px; height: 100px;"src="https://'+ window.location.host + '/storage/' +cellData +'"></td>')
                     $(td).replaceWith($ctl);
                 }
             },
@@ -234,6 +234,7 @@
             <div class="section-navbar-list">
                 <a href="{{url('/history')}}">History</a>
             </div>
+            <label style="color: #556489; font-size: 1.5em;">{{Auth::user()->name}}</label>
             <div class="section-navbar-list">
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -253,7 +254,7 @@
         </div>
         <div class="landing-content direction-wrap mx-auto" style="width: 86%; min-height: 80vh;">
             <div class="rightreveal inner-content" style="margin-top: 65px; width: 100%;">
-                <div class="row" style="width: 100%;">
+                <div class="row">
                     <div class="col-sm-12 catalog">
                         <table id="register" class="table table-bordered compact dataTable no-footer" cellspacing="0"
                             style="width: 100%; border-bottom: 1px solid #dee2e6;">
