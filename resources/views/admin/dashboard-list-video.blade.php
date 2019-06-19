@@ -12,7 +12,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}" >
-
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         {{-- datatable --}}
         <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/jquery.dataTables.css')}}">
         <script type="text/javascript" src="{{ asset('js/admin/jquery.dataTables.js') }}"></script>

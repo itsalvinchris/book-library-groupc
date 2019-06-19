@@ -11,15 +11,11 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-        <!-- font -->
-        {{-- <link
-        href="https://fonts.googleapis.com/css?family=Heebo:700|Rajdhani|Roboto+Condensed"
-        rel="stylesheet"
-        /> --}}
-        <!-- css -->
-
         <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}" >
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/about-us.css') }}" > --}}
         <!-- font awesome -->
