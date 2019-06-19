@@ -53,6 +53,11 @@ php artisan migrate:fresh --seed
 ```
 You might want to look at DatabaseSeeder.php to edit seed data
 
+Don't forget to link storage/app folder to public folder wit
+```bash
+php artisan storage:link
+```
+
 ## Technologies
 Project is created with:
 * Laravel PHP Framework: 5.8.19
